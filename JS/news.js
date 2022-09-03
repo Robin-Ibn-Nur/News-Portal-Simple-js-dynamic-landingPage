@@ -23,5 +23,10 @@ const displayNews = (updateNews) => {
         navContainer.appendChild(navBar);
     });
 
-    console.log(updateNews);
+    // console.log(updateNews);
 }
+
+
+// datas.sort((a, b) => {
+//     return b.propertyName - a.propertyName;
+// });
