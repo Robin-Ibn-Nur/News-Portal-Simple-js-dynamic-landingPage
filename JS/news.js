@@ -17,7 +17,7 @@ const displayNews = (updateNews) => {
         const navBar = document.createElement('a');
         navBar.classList.add('col');
         navBar.innerHTML = `
-        
+
         <a href="">${news.category_name}</a>
         `;
         navContainer.appendChild(navBar);
