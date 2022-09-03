@@ -19,14 +19,21 @@ const displayCard = (updateCards) => {
         cardDetail.classList.add('col');
         const author = cards.author;
         cardDetail.innerHTML = `
-        <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
+        <div class="card h-100 p-4">
+            <img src="${cards.image_url}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text"></p>
+                <h5 class="card-title">${cards.title}</h5>
+                <p class="card-text text-truncate">${cards.details}</p>
             </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
+            <div class="card-footer h-25 d-flex justify-content-between ">
+                <div class="d-flex">
+                    <span><img class="img-fluid h-25 rounded-pill" src="${cards.author.img}" alt=""></span>
+                    <p>${cards.author.name}</p>
+                </div>
+                <div class="d-flex">
+                    <p>${cards.rating.number}</p>
+                    <p>${cards.rating.badge}</p>
+                </div>
             </div>
         </div>
         `;

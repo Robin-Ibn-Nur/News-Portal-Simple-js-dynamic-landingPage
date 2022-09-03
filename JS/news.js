@@ -18,7 +18,7 @@ const displayNews = (updateNews) => {
         navBar.classList.add('col');
         navBar.innerHTML = `
 
-        <a href="">${news.category_name}</a>
+        <a href="" onclick="cardDetails('${news.category_name}')">${news.category_name}</a>
         `;
         navContainer.appendChild(navBar);
     });
@@ -26,7 +26,10 @@ const displayNews = (updateNews) => {
     // console.log(updateNews);
 }
 
-
+// document.getElementById('nav-container').addEventListener('click', function () {
+//     const cardContainer = document.getElementById('card-container');
+//     console.log(cardContainer);
+// })
 // datas.sort((a, b) => {
 //     return b.propertyName - a.propertyName;
 // });
