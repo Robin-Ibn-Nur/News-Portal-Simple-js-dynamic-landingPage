@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeWs PorTal</title>
+    <!-- offline bootstrap cdn link -->
+    <link rel="stylesheet" href="js/cdn-link/bootstrap.min.css">
+    <!-- online bootstrap cdn link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+</head>
+
+<body class="bg-dark">
+    <section>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse navbar-nav me-auto mb-2 mb-lg-0" id="navbarTogglerDemo01">
+                    <a class="navbar-brand fw-bold" href="#">NeWs API</a>
+                    <li class="nav-item navbar-nav me-auto mb-2 mb-lg-0">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <div class=" d-flex gap-5 text-center fw-bold">
+                        <a class="text-decoration-none" href="">News</a>
+                        <a class="text-decoration-none" href="blog.html">Blog</a>
+                        <img style="height: 50px;" class="img-fluid" src="image/api.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <br>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Question #1
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <ul class="fw-bold">
+                        <li>Differences Between arrow function and regular function</li>
+                    </ul>
+                    <b>This article discusses the major differences between the regular functions and the arrow
+                        functions.</b>
+                    <ol>
+                        <li>Arrow functions - a new feature introduced in ES6 - enable writing concise functions in
+                            JavaScript.</li>
+                        <li>Regular functions created using function declarations or expressions are 'constructible' and
+                            'callable'. Since regular
+                            functions are constructible, they can be called using the 'new' keyword. However, the arrow
+                            functions are only
+                            'callable' and not constructible. Thus, we will get a run-time error on trying to construct
+                            a non-constructible arrow
+                            functions using the new keyword.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Question #2
+                </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li><b>Difference between var, let and const keywords in JavaScript</b></li>
+                    </ul>
+                    <ol>
+                        <li><b>var keyword in JavaScript:</b> The var is the oldest keyword to declare a variable in
+                            JavaScript. <p><b>Scope:</b> Global scoped or function scoped. The scope of the var keyword
+                                is the
+                                global or function scope. It means
+                                variables defined outside the function can be accessed globally, and variables defined
+                                inside a particular function can
+                                be accessed within the function.</p>
+                        </li>
+                        <li> <b>let keyword in JavaScript:</b>The let keyword is an improved version of the var keyword.
+                            <p><b>Scope: block scoped:</b>he scope of a let variable is only block scoped. It can't be
+                                accessible outside the particular block ({block}).</p>
+                        </li>
+                        <li><b>const keyword in JavaScript:</b>The const keyword has all the properties that are the
+                            same as the let keyword, except the user cannot update it. <p><b>Scope: block
+                                    scoped:</b>When users declare a const variable, they need to initialize it,
+                                otherwise, it returns an error. The user cannot update
+                                the const variable once it is declared.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Question #3
+                </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+                data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <ul>
+                        <li><b>3. Uses of Template Strings in JavaScript</b></li>
+                    </ul>
+                    <p>Handling strings is one of the most essentials jobs for software development. In JavaScript,
+                        there is special syntax for
+                        it — template strings (also called template literals).</p>
+                    <ol>
+                        <li> <b>Writing Multi-line Strings Directly</b>
+                            <p class="fst-italic">The simplest usage of the template
+                                literal is to
+                                write a multi-line string directly</p>
+                        </li>
+                        <li> <b>String Interpolation with Expressions</b>
+                            <p class="fst-italic">Writing multi-line strings is
+                                just the tip of the iceberg. The power of the template string literal is shown by its
+                                string interpolation ability.
+                            </p>
+                            <p class="fst-italic">We can just add expressions we need within the two back ticks with a
+                                very simple syntax
+                            </p>
+                        </li>
+                        <li> <b>Using Tagged Templates for Complex Scenarios</b>
+                            <p class="fst-italic">The tagged template is a more advanced usage of the template strings.
+                                The basic structure of it is as follows: <br>
+                                <code>tag_name(arrStrings, exp1, exp2, exp3, ...)</code>
+                            </p>
+                            <p class="fst-italic">Basically, defining a tagged template is similar to defining a
+                                function. But the parameters of it are special: the first
+                                parameter is an array of strings, and the following ones are all expressions.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <!-- offline bootstrap cdn link -->
+        <script src="js/cdn-link/bootstrap.min.js"></script>
+
+        <!-- online bootstrap cdn link -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"></script>
+        <!-- api js -->
+        <script src="js/news.js"></script>
+    </section>
+</body>
+
+</html>
