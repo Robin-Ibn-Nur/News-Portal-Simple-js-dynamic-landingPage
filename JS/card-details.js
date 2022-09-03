@@ -34,6 +34,7 @@ const displayCard = (updateCards) => {
                     <p>${cards.total_view}M</p>
                 </div>
             </div>
+            <button onclick="('')" type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailsModel">Show Details</button>
         </div>
         `;
         cardContainer.appendChild(cardDetail);
