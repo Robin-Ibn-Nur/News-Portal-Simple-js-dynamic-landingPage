@@ -10,18 +10,19 @@ const loadNews = async () => {
     }
 }
 loadNews();
-const displayNews = (updateNews) => {
-    const navContainer = document.getElementById('nav-container');
 
+const displayNews = (updateNews) => {
+    toggleSpinner(true);
+    const navContainer = document.getElementById('nav-container');
     updateNews.forEach(news => {
-        const navBar = document.createElement('div');
+        const navBar = document.createElement('a');
         navBar.classList.add('col');
         navBar.innerHTML = `
-        <button href="" onclick="categoryId('${news.category_id}')">${news.category_name}</button>
+        <a class="text-decoration-none" href="" onclick="categoryId('${news.category_id}')">${news.category_name}</a>
         `;
         navContainer.appendChild(navBar);
     });
-
+    
     // console.log(updateNews);
 }
 
@@ -66,7 +67,14 @@ const displayCard = (updateCards) => {
         `;
         cardContainer.appendChild(cardDetail);
     });
-
+    toggleSpinner(false);
 }
-
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none');
+    } else {
+        loaderSection.classList.add('d-none')
+    }
+}
 cardDetails();
