@@ -1,3 +1,30 @@
+const loadNews = async () => {
+    const url = `https://openapi.programming-hero.com/api/news/categories`
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayNews(data.data.news_category);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+loadNews();
+const displayNews = (updateNews) => {
+    const navContainer = document.getElementById('nav-container');
+
+    updateNews.forEach(news => {
+        const navBar = document.createElement('div');
+        navBar.classList.add('col');
+        navBar.innerHTML = `
+        <button href="" onclick="categoryId('${news.category_id}')">${news.category_name}</button>
+        `;
+        navContainer.appendChild(navBar);
+    });
+
+    // console.log(updateNews);
+}
+
 const cardDetails = async () => {
     const url = `https://openapi.programming-hero.com/api/news/category/01`
     try {
@@ -34,7 +61,7 @@ const displayCard = (updateCards) => {
                     <p>${cards.total_view}M</p>
                 </div>
             </div>
-            <button onclick="newsDetails('${cards._id}') type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailsModel">Show Details</button>
+            <button onclick="newsDetails('${cards.category_id}') type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailsModel">Show Details</button>
         </div>
         `;
         cardContainer.appendChild(cardDetail);
@@ -42,10 +69,4 @@ const displayCard = (updateCards) => {
 
 }
 
-const newsDetails = async id => {
-    const url = `https://openapi.programming-hero.com/api/news/category/${_id}`
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log();
-}
 cardDetails();
