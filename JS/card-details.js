@@ -30,9 +30,8 @@ const displayCard = (updateCards) => {
                     <span><img class="img-fluid h-25 rounded-pill" src="${cards.author.img}" alt=""></span>
                     <p>${cards.author.name}</p>
                 </div>
-                <div class="d-flex">
-                    <p>${cards.rating.number}</p>
-                    <p>${cards.rating.badge}</p>
+                <div>
+                    <p>${cards.total_view}M</p>
                 </div>
             </div>
         </div>
