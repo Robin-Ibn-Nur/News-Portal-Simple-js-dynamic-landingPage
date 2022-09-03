@@ -23,7 +23,7 @@ const displayCard = (updateCards) => {
             <img src="${cards.image_url}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${cards.title}</h5>
-                <p class="card-text text-truncate">${cards.details}</p>
+                <p class="card-text">${cards.details.slice(0, 200)}...</p>
             </div>
             <div class="card-footer h-25 d-flex justify-content-between ">
                 <div class="d-flex">
