@@ -1,9 +1,10 @@
 const loadNewsManu = () => {
 
     const url = (`https://openapi.programming-hero.com/api/news/categories`)
-        .fetch(url)
+    fetch(url)
         .then(res => res.json())
         .then(data => displayMenuData(data.data.news_category))
+        .catch(console.error())
 }
 
 const displayMenuData = Categories => {
