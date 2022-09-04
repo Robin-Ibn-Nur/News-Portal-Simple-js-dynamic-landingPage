@@ -22,8 +22,7 @@ const displayNews = (updateNews) => {
         `;
         navContainer.appendChild(navBar);
     });
-    
-    // console.log(updateNews);
+
 }
 
 const cardDetails = async () => {
