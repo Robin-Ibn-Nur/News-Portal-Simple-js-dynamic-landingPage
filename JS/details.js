@@ -38,18 +38,18 @@ const loadNewsCategories = (category_id) => {
         .then(data => displayNewsCategories(data.data))
 }
 
-const displayNewsCategories = SeeNews => {
+const displayNewsCategories = news => {
     // console.log(allNewses);
     const noFoundMass = document.getElementById('no-found-mass')
 
-    if (SeeNews.length === 0) {
+    if (news.length === 0) {
         noFoundMass.classList.remove('d-none')
     }
     else {
         noFoundMass.classList.add('d-none')
     }
     const newsDisplay = document.getElementById('news-Display');
-    SeeNews.forEach(News => {
+    news.forEach(News => {
         // console.log(News);
 
         const cardDiv = document.createElement('div');
