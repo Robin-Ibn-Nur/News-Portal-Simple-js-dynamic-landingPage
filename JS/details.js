@@ -7,9 +7,9 @@ const loadNewsManu = () => {
         .catch(console.error())
 }
 
-const displayMenuData = Categories => {
-    const categoriesContainer = document.getElementById('Categories-container');
-    Categories.forEach(Categorie => {
+const displayMenuData = menubar => {
+    const navContainer = document.getElementById('nav-container');
+    menubar.forEach(Categorie => {
         console.log(Categorie);
         const categorieslist = document.createElement('ul');
         categorieslist.classList.add('navbar')
@@ -19,7 +19,7 @@ const displayMenuData = Categories => {
                 </div>
             
             `;
-        categoriesContainer.appendChild(categorieslist)
+        navContainer.appendChild(categorieslist)
     });
 
 }
@@ -37,6 +37,7 @@ const loadNewsCategories = (category_id) => {
         .then(res => res.json())
         .then(data => displayNewsCategories(data.data))
 }
+
 const displayNewsCategories = SeeNews => {
     // console.log(allNewses);
     const noFoundMass = document.getElementById('no-found-mass')
@@ -56,7 +57,7 @@ const displayNewsCategories = SeeNews => {
         newsCardInfo.innerHTML = `
         
 
-              <div class="col-md-3  ">
+            <div class="col-md-3  ">
                 <img src="${News.thumbnail_url}" class=" rounded-start" alt="...">
               </div>
               <div class="col-md-9 border">
@@ -80,7 +81,7 @@ const displayNewsCategories = SeeNews => {
                   
                  </div>
                   
-              </div>
+            </div>
        
         
         `
@@ -90,7 +91,15 @@ const displayNewsCategories = SeeNews => {
 
 }
 loadNewsCategories('02')
-
+toggleSpinner(true);
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none');
+    } else {
+        loaderSection.classList.add('d-none')
+    }
+}
 const loadNewsDetails = async news_id => {
     const url = (`https://openapi.programming-hero.com/api/news/${news_id}`)
     const res = await fetch(url);
@@ -106,3 +115,4 @@ const displayNewsDetails = news => {
   <p> News Views: ${news[0].total_view ? news[0].total_view : 'No Views'} </p>
   <p> Author Name: ${news[0].author.name ? news[0].author.name : 'No Views'} </p>`
 }
+toggleSpinner(true);
