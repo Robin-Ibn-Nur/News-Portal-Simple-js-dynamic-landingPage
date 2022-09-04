@@ -9,23 +9,31 @@ const loadNews = async () => {
         console.log(error);
     }
 }
-loadNews();
+
 
 const displayNews = (updateNews) => {
+    console.log(updateNews);
     toggleSpinner(true);
     const navContainer = document.getElementById('nav-container');
     updateNews.forEach(news => {
-        const navBar = document.createElement('a');
+        const navBar = document.createElement('l');
         navBar.classList.add('col');
         navBar.innerHTML = `
-        <a class="text-decoration-none" href="" onclick="categoryId('${news.category_id}')">${news.category_name}</a>
+        <button class="text-center px-5" href="" onclick="categoryId('${news.category_id}')">${news.category_name}</button>
         `;
         navContainer.appendChild(navBar);
     });
 
 }
+loadNews();
 
-const cardDetails = async (news_id) => {
+const categoryId = async category_id => {
+    const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
+    const res = await fetch(url);
+    const data = res.json();
+    console.log(data)
+}
+const cardDetails = async () => {
     const url = `https://openapi.programming-hero.com/api/news/category/01`
     try {
         const res = await fetch(url);
@@ -60,24 +68,19 @@ const displayCard = (updateCards) => {
                     <p>${cards.total_view}M</p>
                 </div>
             </div>
-            <button onclick="newsDetails('${cards.category_id}') type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#DetailsModel">Show Details</button>
+            <button onclick="newsDetails('${cards.author.name}') type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#DetailsModel">Show Details</button>
         </div>
         `;
         cardContainer.appendChild(cardDetail);
+
     });
     toggleSpinner(false);
 }
 
-const newsDetails = async (news_id) => {
-    console.log(newsDetails);
-    try {
-        const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
-        const res = await fetch(url);
-        const data = await res.json();
-        console.log(data);
-    } catch (error) {
-        console.log(error)
-    }
+const newsDetails = modal => {
+    const modalTitle = document.getElementById('DetailsModelLabel');
+    modalTitle.innerText = modal.author.name;
+
 }
 const toggleSpinner = isLoading => {
     const loaderSection = document.getElementById('loader');
