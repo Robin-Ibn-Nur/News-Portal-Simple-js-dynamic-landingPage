@@ -22,6 +22,7 @@ const displayNews = (updateNews) => {
         <button class="text-center px-5" href="" onclick="categoryId('${news.category_id}')">${news.category_name}</button>
         `;
         navContainer.appendChild(navBar);
+        console.log(navContainer);
     });
 
 }
@@ -30,8 +31,7 @@ loadNews();
 const categoryId = async category_id => {
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
     const res = await fetch(url);
-    const data = res.json();
-    console.log(data)
+    const data = await res.json();
 }
 const cardDetails = async () => {
     const url = `https://openapi.programming-hero.com/api/news/category/01`
@@ -44,8 +44,6 @@ const cardDetails = async () => {
         console.log(error);
     }
 }
-
-
 const displayCard = (updateCards) => {
     const cardContainer = document.getElementById('card-container');
     console.log(updateCards);
@@ -78,8 +76,7 @@ const displayCard = (updateCards) => {
 }
 
 const newsDetails = modal => {
-    const modalTitle = document.getElementById('DetailsModelLabel');
-    modalTitle.innerText = modal.author.name;
+    const url = ``;
 
 }
 const toggleSpinner = isLoading => {
