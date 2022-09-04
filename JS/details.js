@@ -25,8 +25,8 @@ const displayNews = (updateNews) => {
 
 }
 
-const cardDetails = async () => {
-    const url = `https://openapi.programming-hero.com/api/news/0282e0e58a5c404fbd15261f11c2ab6a`
+const cardDetails = async (news_id) => {
+    const url = `https://openapi.programming-hero.com/api/news/category/01`
     try {
         const res = await fetch(url);
         const data = await res.json();
@@ -44,7 +44,6 @@ const displayCard = (updateCards) => {
     updateCards.forEach(cards => {
         const cardDetail = document.createElement('div');
         cardDetail.classList.add('col');
-        // const author = cards.author;
         cardDetail.innerHTML = `
         <div class="card h-100 p-4">
             <img src="${cards.image_url}" class="card-img-top" alt="...">
@@ -69,7 +68,8 @@ const displayCard = (updateCards) => {
     toggleSpinner(false);
 }
 
-const newsDetails = async categoryId => {
+const newsDetails = async (news_id) => {
+    console.log(newsDetails);
     try {
         const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
         const res = await fetch(url);
@@ -87,5 +87,5 @@ const toggleSpinner = isLoading => {
         loaderSection.classList.add('d-none')
     }
 }
-toggleSpinner(false);
+
 cardDetails();
