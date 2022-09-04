@@ -52,9 +52,9 @@ const displayNewsCategories = SeeNews => {
     SeeNews.forEach(News => {
         // console.log(News);
 
-        const newsCardInfo = document.createElement('div');
-        newsCardInfo.classList.add('row')
-        newsCardInfo.innerHTML = `
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('row')
+        cardDiv.innerHTML = `
         
 
             <div class="col-md-3  ">
@@ -85,7 +85,7 @@ const displayNewsCategories = SeeNews => {
        
         
         `
-        newsDisplay.appendChild(newsCardInfo);
+        newsDisplay.appendChild(cardDiv);
 
     });
 
