@@ -57,7 +57,7 @@ const displayNewsCategories = SeeNews => {
         cardDiv.innerHTML = `
         
 
-            <div class="col-md-3  ">
+            <div class="col-md-3 my-5 ">
                 <img src="${News.thumbnail_url}" class=" rounded-start" alt="...">
               </div>
               <div class="col-md-9 border">
