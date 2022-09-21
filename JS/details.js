@@ -7,15 +7,15 @@ const loadNewsManu = () => {
         .catch(console.error())
 }
 
-const displayMenuData = menubar => {
+const displayMenuData = menubar1 => {
     const navContainer = document.getElementById('nav-container');
-    menubar.forEach(Categorie => {
+    menubar1.forEach(Categorie => {
         console.log(Categorie);
         const categorieslist = document.createElement('ul');
         categorieslist.classList.add('navbar')
         categorieslist.innerHTML = `
                  <div>   
-                      <button onclick="dataLoad(${Categorie.category_id})" class="navbar-brand  btn" href="#">${Categorie.category_name}</button>
+                   <button onclick="loadNewsCategories('${Categorie.category_id}')" class="navbar-brand  btn" href="#">${Categorie.category_name}</button>
                 </div>
             
             `;
@@ -49,6 +49,7 @@ const displayNewsCategories = news => {
         noFoundMass.classList.add('d-none')
     }
     const newsDisplay = document.getElementById('news-Display');
+    newsDisplay.textContent = '';
     news.forEach(News => {
         // console.log(News);
 
@@ -90,16 +91,16 @@ const displayNewsCategories = news => {
     });
 
 }
-loadNewsCategories('02')
-toggleSpinner(true);
-const toggleSpinner = isLoading => {
-    const loaderSection = document.getElementById('loader');
-    if (isLoading) {
-        loaderSection.classList.remove('d-none');
-    } else {
-        loaderSection.classList.add('d-none')
-    }
-}
+// loadNewsCategories()
+// toggleSpinner(true);
+// const toggleSpinner = isLoading => {
+//     const loaderSection = document.getElementById('loader');
+//     if (isLoading) {
+//         loaderSection.classList.remove('d-none');
+//     } else {
+//         loaderSection.classList.add('d-none')
+//     }
+// }
 const loadNewsDetails = async news_id => {
     const url = (`https://openapi.programming-hero.com/api/news/${news_id}`)
     const res = await fetch(url);
@@ -115,4 +116,4 @@ const displayNewsDetails = news => {
   <p> News Views: ${news[0].total_view ? news[0].total_view : 'No Views'} </p>
   <p> Author Name: ${news[0].author.name ? news[0].author.name : 'No Views'} </p>`
 }
-toggleSpinner(true);
+// toggleSpinner(true);

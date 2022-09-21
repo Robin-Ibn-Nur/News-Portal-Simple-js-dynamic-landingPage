@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- fontawsome cdn  -->
+    <script src="https://kit.fontawesome.com/6deda75a70.js" crossorigin="anonymous"></script>
+
+    <title>The Update news</title>
+
+    <!-- inline style -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        hr {
+            height: 4px;
+            background-color: #838383;
+            border: none;
+        }
+
+        .author_imge-control {
+            width: 8%;
+            border-radius: 50%;
+        }
+
+        .card {
+            cursor: pointer;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <header>
+        <!-- top-header with website name -->
+        <section>
+            <nav class="navbar navbar-light bg-light container mt-3">
+                <div class="container-fluid">
+                    <div>
+                        <a class="navbar-brand fw-bold">The <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                class="bg-primary text-light fw-bold p-2 rounded">Update News</span> </a>
+                    </div>
+
+                    <div class="d-flex  align-items-center">
+                        <a class="active fw-bold text-primary nav-link ms-4 " href="">News</a>
+                        <a class="nav-link ms-4" href="./blog.html">blog</a>
+                        <img src="./images/Avatar.png" class="ms-4" alt="">
+                    </div>
+
+                </div>
+
+            </nav>
+        </section>
+        <!-- horigental line  -->
+        <hr class="container ">
+
+        <!-- navber menu after horizantal line  -->
+        <section>
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light text-primary ">
+                <div class="container">
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <ul class="navbar-nav mb-2 mb-lg-0  fs-5 ">
+                            <li class="nav-item ">
+                                <a class="nav-link active" onload="loadNewses('08')" aria-current="page"
+                                    href="#">Home</a>
+                            </li>
+                            <li class="nav-item ms-3">
+                                <a class="nav-link" onclick="loadNewses('01'),togleSpiner(true);" href="#">Breaking
+                                    News</a>
+                            </li>
+
+                            <li class="nav-item ms-3">
+                                <a class="nav-link" href="#" onclick="loadNewses('02'),togleSpiner(true);" tabindex="-1"
+                                    aria-disabled="true">Regular
+                                    News</a>
+                            </li>
+
+                            <li class="nav-item ms-3">
+                                <a class="nav-link" href="#" onclick="loadNewses('03'),togleSpiner(true);" tabindex="-1"
+                                    aria-disabled="true">International News</a>
+                            </li>
+
+                            <li class="nav-item ms-3">
+                                <a class="nav-link" href="#" onclick="loadNewses('04'),togleSpiner(true);"
+                                    tabindex="-1">Sports</a>
+                            </li>
+
+                            <li class="nav-item ms-3">
+                                <a class="nav-link" href="#" onclick="loadNewses('05'),togleSpiner(true);" tabindex="-1"
+                                    aria-disabled="true">Entertainment</a>
+                            </li>
+
+                            <li class="nav-item ms-3">
+                                <a class="nav-link" href="#" onclick="loadNewses('06'),togleSpiner(true);" tabindex="-1"
+                                    aria-disabled="true">Culture</a>
+                            </li>
+                            <li class="nav-item ms-3">
+                                <a class="nav-link" href="#" onclick="loadNewses('07'),togleSpiner(true);" tabindex="-1"
+                                    aria-disabled="true">Arts</a>
+                            </li>
+                            <li class="nav-item ms-3">
+                                <a class="nav-link" href="#" onclick="loadNewses('08'),togleSpiner(true);" tabindex="-1"
+                                    aria-disabled="true">All
+                                    News</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+
+    </header>
+    <main class="container">
+
+
+
+        <!-- no Data-section -->
+        <section class="mt-4">
+            <div class="mb-3 w-100 d-none bg-warning " id="massage">
+
+                <span class=" bg-warning p-1 d-inline-block fs-4  text-dark fw-bold "> No data
+                    Found</span>
+
+            </div>
+            </div>
+        </section>
+
+        <!-- iteams count section  -->
+        <section class="mt-4">
+            <div class="mb-3 w-100 d-none p-1 rounded bg-white" id="iteams-count">
+                <span id="massage-innertext" class="  p-1 d-inline-block fs-4  text-dark fw-bold "> </span>
+            </div>
+            </div>
+        </section>
+
+
+
+        <!-- loading -->
+        <section id="loader" class="d-none">
+            <div class="text-center d-flex justify-content-center align-items-center" style="height:400px;">
+                <div class="spinner-border text-success" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Modal -->
+        <div class="modal fade" id="showDetailsNews" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="showDetailsNewsLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="showDetailsNewsLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="details_imge" src="" style="width:100%; height:300PX;">
+
+                        <p id="detailsnews"></p>
+                        <span class="text-primary fw-bold" id="imgeAutor"></span> <br>
+                        <img id="detailsPublisher_imge" src="" style="width:30PX; height:10%; border-radius: 50%;">
+                        <p id="publish-date"></p>
+
+                    </div>
+                    <div class="modal-footer ">
+
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- news blog display-->
+        <section>
+            <div id="news-container">
+
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="bg-white p-4 mt-5">
+        <p class="text-center">Copyright 2021 The Update News</p>
+    </footer>
+
+
+    <!-- my operation js link  -->
+    <script src="rony's-project.js"></script>
+
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- by defult show execute load news-->
+    <script>
+        loadNewses('08');
+    </script>
+
+
+</body>
+
+</html>
